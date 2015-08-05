@@ -1,3 +1,4 @@
+<template name="Home">
 <head>
   <title>TwitterBasic</title>
 </head>
@@ -5,6 +6,11 @@
 <body>
   <div class="container">
     <div class="navbar">
+      <div style="height: 50px;" class="text-right">
+        {{#if currentUser}}
+          {{> atNavButton}}
+        {{/if}}
+      </div>
       <img src="img/Twitter_logo.png">
     </div>
     <div class="row">
@@ -16,10 +22,17 @@
         
         <!-- Partial Template that contains most recent tweets -->
         {{> recentUpdates}}
-      </div>
+      </div> 
+        <!-- user panel to sign up and login only present when Not Current User-->
+        {{#unless currentUser}}
+          <div class="col-md-4 bg-success">
+            {{> atForm}}
+          </div>
+        {{/unless}}
     </div>
   </div>
 </body>
+</template>
 
 <template name="submitTweetLayout">
   <label for="tweetInputBox">what are you doing?</label>
@@ -31,7 +44,7 @@
 </template>
 
 <template name="recentUpdates">
-  <h5>Recent Updates</h5>
+  <h4>Recent Updates</h4>
   <div class="tweet-list">
     {{#if Template.subscriptionsReady}}
       {{#each mostRecentTweets}}
@@ -47,7 +60,7 @@
   <div class="tweet">
     <div class="tweetContent">
       <div class="tweetBody" style="display: inline-block; max-width: 520px;">
-        <h5>{{tweetText}}</h5>
+        <h5>{{tweetText}} <span>{{submittedAt}}</span></h5>
       </div>
     </div>
   </div>

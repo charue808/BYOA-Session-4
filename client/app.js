@@ -1,3 +1,7 @@
+Router.route('/', function() {
+  this.render('Home');
+});
+
 Template.recentUpdates.onCreated(function() {
   this.subscribe("tweetPublication");
 });
@@ -21,5 +25,11 @@ Template.submitTweetLayout.events({
     Meteor.call('submitTweetOnServer', $('#tweetInputBox').val());
     
     $('#tweetInputBox').val(' ');
+  }
+});
+
+Template.tweetItem.helpers({
+  submittedAt: function() {
+    return new Date(this.createdAt).toString();
   }
 });
