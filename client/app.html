@@ -1,0 +1,54 @@
+<head>
+  <title>TwitterBasic</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="navbar">
+      <img src="img/Twitter_logo.png">
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <h3 class="description">A global community of friends and strangers answering one simple question: What are you doing?</h3>
+        
+        <!-- Partial Template that contains text box and submit button -->
+        {{> submitTweetLayout}}
+        
+        <!-- Partial Template that contains most recent tweets -->
+        {{> recentUpdates}}
+      </div>
+    </div>
+  </div>
+</body>
+
+<template name="submitTweetLayout">
+  <label for="tweetInputBox">what are you doing?</label>
+  <textarea class="form-control" id="tweetInputBox" rows="4" maxlength="140"></textarea>
+  <br>
+  <div class="text-right">
+    <button class="btn btn-primary">Submit</button>
+  </div>
+</template>
+
+<template name="recentUpdates">
+  <h5>Recent Updates</h5>
+  <div class="tweet-list">
+    {{#if Template.subscriptionsReady}}
+      {{#each mostRecentTweets}}
+        {{> tweetItem}}
+      {{/each}}
+    {{else}}
+      Loading...
+    {{/if}}
+  </div>
+</template>
+
+<template name="tweetItem">
+  <div class="tweet">
+    <div class="tweetContent">
+      <div class="tweetBody" style="display: inline-block; max-width: 520px;">
+        <h5>{{tweetText}}</h5>
+      </div>
+    </div>
+  </div>
+</template>

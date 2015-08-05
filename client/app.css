@@ -1,0 +1,52 @@
+/* CSS declarations go here */
+
+.container {
+  width: 860px;
+}
+
+.navbar {
+  background-color: white;
+  border: white;
+}
+
+.description {
+  font-size: 16px;
+}
+
+textarea {
+  resize: none;
+}
+
+.tweet{
+	height:55px;
+	display: table; 
+}
+
+.tweetContent{
+  display:table-cell;
+  vertical-align:middle;
+}
+
+.tweetImage{
+	display:inline-block; 
+	width:35px;
+	margin-right: 5px;
+}
+.tweetImage > img{
+	width:35px;
+}
+
+.tweetBody{
+	vertical-align:middle;
+ 
+}
+
+.tweetTime{
+	font-size: 10px;
+	color: #aaaaaa; 
+}
+
+.blueUnderline{
+   text-decoration: underline;
+   color: blue;
+}
