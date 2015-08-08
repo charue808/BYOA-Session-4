@@ -11,3 +11,4 @@ useraccounts:bootstrap
 iron:router
 accounts-password
 copleykj:livestamp
+jparker:gravatar

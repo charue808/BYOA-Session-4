@@ -5,11 +5,14 @@ Meteor.startup(function() {
 // Define the function(s) we wish to call
 
 submitTweet = function(textToStore) {
+  
+  var authorEmail = Meteor.user().emails[0].address;
  
     TweetsCollection.insert({
       tweetText: textToStore,
       createdAt: new Date().getTime(),
-      author: Meteor.user().emails[0].address
+      author: Meteor.user().emails[0].address,
+      authorImageURL:  Gravatar.imageUrl(authorEmail)
     });
  
 }
