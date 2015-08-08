@@ -8,7 +8,8 @@ submitTweet = function(textToStore) {
  
     TweetsCollection.insert({
       tweetText: textToStore,
-      createdAt: new Date().getTime()
+      createdAt: new Date().getTime(),
+      author: Meteor.user().emails[0].address
     });
  
 }
